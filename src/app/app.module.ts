@@ -8,7 +8,8 @@ import { NavbarComponent } from './composants/dashboard-medecin/navbar/navbar.co
 import { LoginComponent } from './composants/login/login.component';
 import { ErreurComponent } from './composants/erreur/erreur.component';
 import { CreerCompteComponent } from './composants/creer-compte/creer-compte.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,9 @@ import { CreerCompteComponent } from './composants/creer-compte/creer-compte.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
