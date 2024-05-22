@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Liste des consultations</h2>
+    <div class="input-group mb-3">
+        <input type="date" class="form-control" [(ngModel)]="searchDate" placeholder="Rechercher une ordonnance..." aria-label="Rechercher une ordonnance" aria-describedby="basic-addon2">
+        <button class="btn btn-outline-secondary" type="button" (click)="rechercherConsultationParDate()">Rechercher</button>
+      </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">N° Consultation </th>
+          <th scope="col">Date</th>
+          <th scope="col">Diagnostic</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let consultation of consultations">
+        <td>{{ consultation.id_consultation }}</td>
+        <td>{{ consultation.date_consultation | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ consultation.diagnostic }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+    <!-- <tbody>
+    <tr *ngFor="let consultation of filteredConsultations">
+      <td>{{ consultation.id_consultation }}</td>
+      <td>{{ consultation.date_consultation | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ consultation.diagnostic }}</td>
+    </tr>
+  </tbody>
+</table>
+</div> -->

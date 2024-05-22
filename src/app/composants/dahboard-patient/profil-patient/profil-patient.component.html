@@ -1,0 +1,113 @@
+<div class="container-scroller">
+    <app-navbar-patient></app-navbar-patient>
+    <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" (click)="AllerVers('/dash-patient')">
+                  <i class="icon-paper menu-icon"></i>
+                  <span class="menu-title">Dossier Médical</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="AllerVers('/rendez-vous')" routerLinkActive="active">
+                  <i class="icon-layout menu-icon"></i>
+                  <span class="menu-title">Rendez-vous</span>
+                  
+                </a>
+               
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="AllerVers('/discussion-patient')" routerLinkActive="active">
+                  <i class="icon-layout menu-icon"></i>
+                  <span class="menu-title">Discussion</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="AllerVers('/profil-patient')"  routerLinkActive="active">
+                    <i class="icon-head menu-icon"></i>
+                  <span class="menu-title">Profil</span>
+                </a>
+            </li>
+            
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">
+                  <i class="icon-grid menu-icon"></i>
+                  <span class="menu-title">Déconnexion</span>
+                </a>
+              </li>
+            </ul>
+          </nav> 
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="assets/images/custom/patient4.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <div *ngIf="patient">
+                                <h5 class="my-3">{{patient.nom}} {{patient.prenom}}</h5>
+                            </div>
+                            <p class="text-muted mb-1">Patient</p>
+                            <p class="text-muted mb-4">{{patient.adresse}}</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary"  (click)="recupere('/modifierPatient')">Modifier</button>
+                                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1" (click)="AllerVers('/discussion-patient')">Messages</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Nom</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{patient.nom}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Prenom</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{patient.prenom}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Telephone</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{patient.telephone}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Adresse</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{patient.adresse}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Mail</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{patient.email}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

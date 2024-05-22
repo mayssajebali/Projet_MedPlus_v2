@@ -2,3 +2,29 @@
 .btn-primary{
     background-color:#183E9F
 }
+.active{
+    background-color:#183E9F
+}
+.message-medecin {
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+    width: 300px;
+    margin-left: 350px;/* Couleur du texte pour les messages des médecins */
+  }
+  
+.message-patient {
+    background-color: #87CEEB;
+    border: 1px solid #87CEEB;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+    width: 250px;
+     /* Couleur du texte pour les messages des patients */
+  }
+
+

@@ -1,0 +1,153 @@
+<div class="container-scroller">
+  <app-navbar></app-navbar>
+  <div class="container-fluid page-body-wrapper">
+  <app-sidebarnav></app-sidebarnav>
+  <div class="content-wrapper">
+<!-- {{patientsTest|json}}
+{{patients|json}} -->
+{{rvs|json}}
+<br><br>
+<!-- {{appointments|json}} -->
+<!-- (onCellClick)="addRdv($event)" -->
+<!-- America/Los_Angeles -->
+<!--calender-->
+<div style="margin: 10px;">
+  <dx-scheduler
+  
+  timeZone="Africa/Lagos"
+  [dataSource]="rvs"
+  [views]="['day', 'week', 'workWeek', 'month']"
+  currentView="day"
+  [currentDate]="currentDate"
+  [startDayHour]="9"
+  [height]="500"
+  
+  (onCellClick)="disableAllCells($event)"
+  
+  (onAppointmentFormOpening)="disableAppointmentForm($event)" 
+  (onAppointmentDeleting)="ondelete($event)"
+>
+<!-- <div *dxTemplate="let data of 'cell'">
+  <div [ngStyle]="getCellStyles(data.date)">
+      {{ data.text }}
+  </div>
+</div> -->
+<!-- <div 
+    *dxTemplate="let data of 'cell'"
+    [ngClass]="{ 'selected-date': data.date === highlightedDate }">
+    {{ data.text }}
+  </div> -->
+</dx-scheduler>
+
+</div>
+<!-- <button type="submit" (click)="ondelete()" >delete</button> -->
+<!--calender-->
+<!-- <div *ngIf="seen">
+  <form action="" (ngSubmit)="ajoutRDv()">
+    <div>
+      <label for="">donnez l'heure</label>
+      <input type="heure" [(ngModel)]="heure" name="heure" >
+    </div>
+    <div>
+      <label for="">donnez le text</label>
+      <input type="text" [(ngModel)]="text" name="text" >
+    </div>
+    
+    
+    
+    <div>
+      <label> Donnez le debut du rendezVous</label>
+      <input type="datetime-local" [(ngModel)]="debutDate" name="debutDate" > 
+    </div>
+    <div>
+      <label> Donnez la fin du rendezVous</label>
+      <input type="datetime-local" [(ngModel)]="finDate" name="finDate" > 
+    </div>
+    <button type="submit"> ajouter rdv</button>
+</form>
+</div> -->
+
+<div class="container card"  style="margin: 10px;">
+  <!-- *ngIf="seen" -->
+  <div class="card-body">
+  <h2> Ajout d'un rendez-vous</h2>
+  <form [formGroup]="form" >
+    <div>
+      <label> Clicked Date </label>
+      <input type="text" [value]="clickedDate" disabled>
+    </div>
+    <!-- <div>
+      <label> la date du rendez-vous</label>
+      <input type="date" formControlName="startdate"> 
+    </div> -->
+      <!-- <div>
+          <label> Donnez l'heure</label>
+          <input type="text"  formControlName="heure">
+      </div> -->
+
+     
+      
+      <!-- <div>
+        <label> Donnez la fin du rendezVous</label>
+        <input type="datetime-local" formControlName="enddate"> 
+      </div> -->
+
+      
+
+      <div>
+        <label> Veuillez choisir l'heure du rendez-vous</label>
+        <div style="display: flex;justify-content: space-around;">
+          <button type="button" (click)="setAppointmentTime('09:00')">09:00</button>
+      <button type="button" (click)="setAppointmentTime('10:00')">10:00</button>
+      <button type="button" (click)="setAppointmentTime('09:30')">09:30</button>
+      <button type="button" (click)="setAppointmentTime('14:00')">14:00</button>
+        </div>
+      </div>
+
+      <div>
+        <label> Donnez le motif du rendez-vous</label>
+        <input type="text" formControlName="text">
+    </div>
+
+    <button class="btn btn-primary"(click)="addRdv()">Confirmer</button>
+    <button class="btn btn-primary" (click)="onReset()">Anuller</button>
+      <!-- <input type="button" value="Anuller" (click)="onReset()"> -->
+  </form>
+</div>
+</div>
+
+
+
+
+
+<!--table-->
+<div class="col-md-15 stretch-card grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <p class="card-title">Patients</p>
+      <ul class="icon-data-list" *ngFor="let p of patients;index as i; count as nb">
+        <li>
+          <div class="d-flex" style="margin: 20px;">
+            <img src="assets/images/faces/face1.jpg" alt="user">
+            <div>
+              <p class="text-info mb-1">{{p.nom}}</p>
+              <!-- <p class="mb-0">patient {{i}} / {{nb}}</p> -->
+              <small>{{p.id_patient}}</small>
+              <!-- <p class="mb-0">{{p.prenom}}</p> -->
+            </div>
+            <div > <br><p class="mb-0">patient {{i}} / {{nb}}          {{p.prenom}}</p></div>
+            <!-- <div><br><p class="mb-0">{{p.prenom}}</p></div> -->
+          </div>
+        </li> <br> 
+        
+      </ul>
+    </div>
+  </div>
+</div>
+</div></div></div>
+<script src="https://cdn3.devexpress.com/jslib/21.2.5/js/dx.all.js"></script>
+<script src="https://cdn3.devexpress.com/jslib/21.2.5/js/localization/dx.messages.fr.js"></script>
+
+<script>
+  DevExpress.localization.locale("fr");
+</script>

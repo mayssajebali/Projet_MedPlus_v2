@@ -1,0 +1,23 @@
+<!-- first-page.component.html -->
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-5 mx-auto">
+            <div class="auth-form-light text-left py-3 px-2 px-sm-3 rounded border p-3">
+              <div class="brand-logo">
+                <img src="assets/images/custom/image.png" alt="logo" style="margin-left: 140px; width:200px">
+              </div>
+              <h4>Choisissez votre rôle :</h4><br>
+              <div class="first-page-container">
+                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" (click)="selectRole('medecin')">Je suis un médecin</button>
+                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" (click)="selectRole('patient')">Je suis un patient</button>
+                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" (click)="selectRole('secretaire')">Je suis une secrétaire</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

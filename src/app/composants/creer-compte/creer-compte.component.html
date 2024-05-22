@@ -2,57 +2,106 @@
   <div class="container-fluid page-body-wrapper full-page-wrapper">
     <div class="content-wrapper d-flex align-items-center auth px-0">
       <div class="row w-100 mx-0">
-        <div class="col-lg-5 mx-auto" >
+        <div class="col-lg-5 mx-auto">
           <div class="auth-form-light text-left py-3 px-2 px-sm-3 rounded border p-3">
             <div class="brand-logo">
-              <img src="assets/images/logoMedPlus.png" alt="logo" style="margin-left:13em;">
+              <img src="assets/images/custom/image.png" alt="logo" style="margin-left: 150px;" width="150px">
             </div>
             <h4>Nouveau ici?</h4>
             <h6 class="font-weight-light">L'inscription est simple. Cela ne prend que quelques étapes</h6>
-            <form class="pt-2" (ngSubmit)="onSignup()">
+            <form class="pt-2" [formGroup]="userForm" (ngSubmit)="creer_compte()">
+              <div *ngIf="selectedRole === 'patient'">
               <div class="form-group">
-                <input type="text" class="form-control form-control-sm" id="exampleInputUsername1" placeholder="cin" [(ngModel)]="cin" name="cin" >
+                <input type="text" class="form-control form-control-sm" placeholder="CIN" formControlName="cin" name="cin" >
               </div>
               <div class="form-group">
-                <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Nom" [(ngModel)]="nom" name="nom">
+                <input type="text" class="form-control form-control-sm" placeholder="Nom" formControlName="nom" name="nom">
+              
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control form-control-sm" placeholder="Prénom" formControlName="prenom" name="prenom">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Prénom"  [(ngModel)]="prenom" name="prenom">
+                <input type="email" class="form-control form-control-sm" placeholder="Email" formControlName="email" name="email">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Email" [(ngModel)]="email" name="email">
+                <input type="password" class="form-control form-control-sm" placeholder="Mot de passe" formControlName="mot_de_passe" name="mot_de_passe">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Mot de passe" [(ngModel)]="motDePasse" name="motDePasse">
+                <input type="date" class="form-control form-control-sm" placeholder="Date de naissance" formControlName="date_de_naissance" name="date_de_naissance">
               </div>
               <div class="form-group">
-                <input type="date" class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Date de naissance" [(ngModel)]="dateNaissance" name="dateNaissance">
+                <input type="text" class="form-control form-control-sm"  placeholder="Adresse" formControlName="adresse" name="adresse">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control form-control-sm"  placeholder="Adresse" [(ngModel)]="adresse" name="adresse">
+                <input type="tel" class="form-control form-control-sm"  placeholder="Téléphone" formControlName="telephone" name="telephone">
               </div>
-              <div class="form-group">
-                <input type="tel" class="form-control form-control-sm"  placeholder="Téléphone" [(ngModel)]="telephone" name="telephone">
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 "></label>
-                <div class="col-sm-4">
-                  <div>
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="sexe" id="femmeRadio" value="femme" [(ngModel)]="sexe" checked>
-                      Femme
-                    </label>
+                      
+                       <div class="form-group row">
+                        <label class="col-sm-3 "></label>
+                        <div class="col-sm-4">
+                          <div>
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="sexe" id="femmeRadio" value="femme" formControlName="sexe">
+                              Femme
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-sm-5">
+                          <div>
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="sexe" id="hommeRadio" value="homme" formControlName="sexe">
+                              Homme
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+           
+              <div *ngIf="selectedRole === 'medecin'">
+             
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-sm" placeholder="Nom" formControlName="nom" name="nom">
                   </div>
-                </div>
-                <div class="col-sm-5">
-                  <div>
-                    <label class="form-check-label">
-                      <input type="radio" class="form-check-input" name="sexe" id="hommeRadio" value="homme" [(ngModel)]="sexe">
-                      Homme
-                    </label>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-sm" placeholder="Prénom" formControlName="prenom" name="prenom">
                   </div>
+              
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-sm"  placeholder="Adresse" formControlName="adresse" name="adresse">
+                  </div>
+                  <div class="form-group">
+                    <input type="tel" class="form-control form-control-sm"  placeholder="Téléphone" formControlName="telephone" name="telephone">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-sm" placeholder="Email" formControlName="email" name="email">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-sm" placeholder="Mot de passe"  formControlName="motDePasse" name="motDePasse">
+                  </div>
+        
                 </div>
+     
+           
+              <div *ngIf="selectedRole === 'secretaire'">
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-sm" placeholder="Nom" formControlName="nom" name="nom">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-sm" placeholder="Prénom" formControlName="prenom" name="prenom">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-sm" placeholder="Email" formControlName="email" name="email">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-sm" placeholder="Mot de passe" formControlName="motDePasse" name="motDePasse">
+                </div>
+            
               </div>
+     
+          
               <div class="mb-2">
                 <div style="margin-left: 23px;">
                   <label class="form-check-label text-muted">
@@ -61,18 +110,16 @@
                   </label>
                 </div>
               </div>
+          
               <div class="mt-2">
                 <button class="btn btn-block btn-primary btn-sm font-weight-medium auth-form-btn" type="submit"> S'INSCRIRE</button>
               </div>
+          
               <div class="text-center mt-3 font-weight-light">
                 Vous avez déjà un compte ? <a routerLink="/login" class="text-primary">Login</a>
               </div>
             </form>
           </div>
-        </div>
-        <!--<div class="col-lg-6 d-none d-lg-block">-->
-          <div class="d-none d-lg-block">-
-          <img src="assets/images/bg3.png" alt="Image" class="form-image"  style="margin-right: 8em;">
         </div>
       </div>
     </div>

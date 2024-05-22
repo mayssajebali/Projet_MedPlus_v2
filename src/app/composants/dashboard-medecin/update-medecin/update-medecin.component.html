@@ -1,0 +1,56 @@
+<div class="container-scroller">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+    <app-sidebarnav></app-sidebarnav>
+    <div class="content-wrapper">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Modifier le profil</h4>
+                <p class="card-description">
+                    modifier votre profil               
+                 </p>
+                <form class="forms-sample" #medForm="ngForm" (ngSubmit)="onModifier()">
+                  <div class="form-group">
+                    <label for="exampleInputName1">Nom</label>
+                    <input type="text" class="form-control"  [(ngModel)]="medecin.nom_medecin" placeholder="Nom" name="nom" >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Prenom</label>
+                    <input type="email" class="form-control" placeholder="Prenom" [(ngModel)]="medecin.prenom_medecin" name="prenom">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Adresse</label>
+                    <input type="email" class="form-control"   placeholder="Adresse" [(ngModel)]="medecin.adresse_medecin" name="adresse">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Téléphone</label>
+                    <input type="email" class="form-control"  placeholder="Téléphone" name="tel" [(ngModel)]="medecin.telephone_medecin" >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail3">Mail</label>
+                    <input type="email" class="form-control"  placeholder="mail" name="mail" [(ngModel)]="medecin.mail_medecin">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword4">Mot de passe</label>
+                    <input type="password" class="form-control" placeholder="Password" name="pwd" [(ngModel)]="medecin.mot_de_passe_medecin"> 
+                  </div>
+                 
+                  <div class="form-group">
+                    <label>File upload</label>
+                    <input type="file" name="img[]" class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                      <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                      <span class="input-group-append">
+                        <button class="file-upload-browse btn btn-primary" type="button" (click)="triggerFileUpload()">Upload</button>
+                      </span>
+                    </div>
+                  </div>
+                
+                  <button type="submit" class="btn btn-primary mr-2" >Submit</button>
+                  <button class="btn btn-light" routerLink="/medecin">Cancel</button>
+                </form>
+              </div>
+            </div>
+          </div>
+    </div></div></div>

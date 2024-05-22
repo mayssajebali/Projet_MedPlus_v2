@@ -30592,4 +30592,78 @@ div.tagsinput span.tag a {
   }
 }
 
+.container-discussion{
+  position: relative;
+  background-color:white;
+  width:700px;
+  height: 200px;
+  float:right;
+  margin-right: 0;
+  display: block;
+  margin-top:0;
+  
+}
+
+.div2{
+  height: 360px;
+  border-top: 1px solid #D0D0D0;
+  border-bottom: 1px solid #D0D0D0;
+ 
+}
+.div1,.div3{
+  height: 80px;
+  position: relative;
+}
+.div1{
+  display:flex;
+  justify-content:space-between;
+}
+.div3{
+  display:flex;
+  justify-content:space-between;
+}
+.profil-patient
+{
+  width: 50px;
+  margin: 15px;
+}
+.icons{
+  display: flex;
+  justify-content:space-around;
+  margin: 20px;
+}
+.icons>div{
+  color:#A9A9A9;
+  margin: 15px;
+}
+
+.border-light {
+  border-color: rgb(230,235,245) !important;
+}
+.bg-light {
+  --bs-bg-opacity: 1;
+  width: 600px;
+  margin: 10px;
+  background-color: rgb(230,235,245) !important;
+}
+.div4{
+  display: flex;
+}
+.div4>div{
+  margin-top: 20px;
+  margin-right: 25px;
+  font-size:20px;
+  color: #026adf;
+}
+.ft16{
+  font-size:10px;
+}
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
+.message{
+  display: flex;
+  justify-content:start;
+}
+#messageContainer {
+  height: 350px; /* Hauteur fixe du conteneur */
+  overflow-y: auto; /* Activer le défilement vertical */
+}

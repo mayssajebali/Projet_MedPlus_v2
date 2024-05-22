@@ -1,0 +1,43 @@
+<div class="container-scroller">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+    <app-sidebarnav></app-sidebarnav>
+    <div class="content-wrapper">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <p class="card-title mb-0">Dossiers Medicaux</p>
+                <div class="table-responsive">
+                  <table class="table table-striped table-borderless">
+                    <thead>
+                      <tr>
+                        <th>Cin</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Date de Naissance</th>
+                        <th>Mail</th>
+                        <th>Téléphone</th>
+                      </tr>  
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let p of patients">
+                        <td>{{p.cin}}</td>
+                        <td >{{p.nom}}</td>
+                        <td >{{p.prenom}}</td>
+                        <td>{{p.date_de_naissance}}</td>
+                        <td >{{p.email}}</td>
+                        <td >{{p.telephone}}</td>
+                        <td><button class="btn btn-primary" (click)="consulterPatient(p.id_patient)">Consulter</button></td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngfor="let d of discussions">
+            {{d.message}}
+        </div>
+</div>
+</div></div>

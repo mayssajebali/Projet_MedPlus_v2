@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Liste des certificats médicaux</h2>
+  
+    <div class="input-group mb-3">
+      <input type="date" class="form-control" placeholder="Rechercher par date..." [(ngModel)]="searchDate">
+      <button class="btn btn-outline-secondary" type="button" (click)="searchCertificats()">Rechercher</button>
+    </div>
+  
+  
+    <div *ngFor="let certificat of certificats" class="card mb-3">
+      <div class="card-body">
+        <button class="btn btn-primary" (click)="imprimerCertificat(certificat.code_certificat)" style="float:right">Imprimer</button>
+        <div [id]="'ordonnanceContent_' + certificat.code_certificat">
+        <h5 class="card-title">Certificat #{{ certificat.code_certificat }}</h5>
+        <p class="card-text">Nombre de jours de repos : {{ certificat.nbr_jour_repos }}</p>
+        <p class="card-text">Date de repos : {{ certificat.date_repos }}</p>
+        <p class="card-text">{{ certificat.commentaire }}</p>
+      
+      </div>
+    </div>
+  </div>
+  

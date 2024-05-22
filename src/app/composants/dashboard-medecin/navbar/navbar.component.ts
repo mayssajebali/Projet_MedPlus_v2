@@ -8,9 +8,6 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  constructor(private router:Router,private authService :AuthServiceService){}
-  onDisconnect(){
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
+
+  
 }
