@@ -7,11 +7,14 @@
     </div>
   
   
-    <div *ngFor="let certificat of certificats" class="card mb-3">
+    <div *ngFor="let certificat of certificats;let i = index" class="card mb-3">
       <div class="card-body">
+        <button (click)="deleteCertificat(certificat.code_certificat)" class="btn btn-danger" style="float:right">Supprimer</button>
+
         <button class="btn btn-primary" (click)="imprimerCertificat(certificat.code_certificat)" style="float:right">Imprimer</button>
+
         <div [id]="'ordonnanceContent_' + certificat.code_certificat">
-        <h5 class="card-title">Certificat #{{ certificat.code_certificat }}</h5>
+        <h5 class="card-title">Certificat #{{i+1}}</h5>
         <p class="card-text">Nombre de jours de repos : {{ certificat.nbr_jour_repos }}</p>
         <p class="card-text">Date de repos : {{ certificat.date_repos }}</p>
         <p class="card-text">{{ certificat.commentaire }}</p>

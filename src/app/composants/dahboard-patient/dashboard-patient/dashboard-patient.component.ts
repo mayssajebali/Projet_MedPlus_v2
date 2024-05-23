@@ -12,6 +12,7 @@ export class DashboardPatientComponent implements OnInit{
   patient!: Patient;
   id: number = 0;
   id_dossier_medical!:any;
+  genre!:string;
   constructor(
     private router: Router,
     private patientService: PatientService,
@@ -22,6 +23,7 @@ export class DashboardPatientComponent implements OnInit{
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       this.getPatient(this.id);
+      this.genre=this.patient.sexe;
     });
 
     /*this.route.paramMap.subscribe(params => {

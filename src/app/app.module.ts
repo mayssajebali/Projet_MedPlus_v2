@@ -32,6 +32,8 @@ import { AjouterCertificatComponent } from './composants/dashboard-medecin/ajout
 import { DiscussionPatientComponent } from './composants/dahboard-patient/discussion-patient/discussion-patient.component';
 import { ProfilPatientComponent } from './composants/dahboard-patient/profil-patient/profil-patient.component';
 import { ConsulterComponent } from './composants/dashboard-medecin/consulter/consulter.component';
+import { StatistiquesSecretaireComponent } from './composants/dashboard-secretaire/statistiques-secretaire/statistiques-secretaire.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +62,7 @@ import { ConsulterComponent } from './composants/dashboard-medecin/consulter/con
     DiscussionPatientComponent,
     ProfilPatientComponent,
     ConsulterComponent,
+    StatistiquesSecretaireComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,7 @@ import { ConsulterComponent } from './composants/dashboard-medecin/consulter/con
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    DxSchedulerModule
+    DxSchedulerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

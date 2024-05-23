@@ -65,4 +65,8 @@ export class PatientService {
     return this.http.get<Patient>(url);
   }
   
+  getDiscussions():Observable <Discussion[]>{
+    return this.http.get<Discussion[]>(`${this.baseUrl}/discussions`);
+  }
+
 }

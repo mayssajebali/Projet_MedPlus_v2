@@ -96,4 +96,16 @@ export class AjouterCertificatComponent implements OnInit {
     }
     this.certificatService.addCertificat(newCertificat,this.id_dossier_medical).subscribe();
   }
+  deleteCertificat(certificatId: number): void {
+    this.certificatService.deleteCertificat(certificatId).subscribe(
+      () => {
+        console.log('Certificat supprimé avec succès');
+        alert('Certificat supprimé avec succès');
+        this.certificats = this.certificats.filter(c => c.code_certificat!== certificatId);
+      },
+      (error) => {
+        console.error('Error deleting certificat', error);
+      }
+    );
+  }
 }

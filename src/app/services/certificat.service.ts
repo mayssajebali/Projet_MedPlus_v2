@@ -27,4 +27,7 @@ export class CertificatService {
   addCertificat(certif:Certificat,id:number): Observable<Certificat>{
     return this.http.post<Certificat>(`${this.certificatsUrl}/${id}`, certif); 
   }
+  deleteCertificat(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.certificatsUrl}/${id}`);
+  }
 }

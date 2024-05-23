@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'first-page', component:FirstPageComponent },
   {path:'login',title:'login',component:LoginComponent},
   {path:'signup',title:'Créer compte',component:CreerCompteComponent},
-  {path:'dash-medecin',title:'espace médecin',component:DashboardMedecinComponent,canActivate:[authGuard]},
+  {path:'dash-medecin',title:'espace médecin',component:DashboardMedecinComponent},
   {path:'creer-compte',title:'creer compte',component:CreerCompteComponent},
   {path:'discussion',title:'disscussion',component:DiscussionsComponent},
   {path:'patients',title:'patients',component:PatientsComponent},

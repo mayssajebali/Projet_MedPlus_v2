@@ -51,4 +51,12 @@ export class OrdonnanceService {
   addMedicament(medicament:Medicament):Observable<Medicament>{
     return this.http.post<Medicament>(`${this.apiUrl}/medicaments`,medicament)
   }
+
+  deleteMedicament(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/medicaments/${id}`);
+  }
+
+  deleteOrdonnance(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/ordonnances/${id}`);
+  }
 }

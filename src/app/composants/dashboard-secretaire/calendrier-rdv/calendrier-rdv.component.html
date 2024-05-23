@@ -109,6 +109,13 @@
         <input type="text" formControlName="text">
     </div>
 
+    <div>
+      <label> Sélectionnez le patient</label>
+      <select formControlName="lesPatient">
+        <option *ngFor="let p of patients" [ngValue]="p">{{ p.nom }}  {{ p.prenom }}</option>
+      </select>
+    </div>
+
     <button class="btn btn-primary"(click)="addRdv()">Confirmer</button>
     <button class="btn btn-primary" (click)="onReset()">Anuller</button>
       <!-- <input type="button" value="Anuller" (click)="onReset()"> -->

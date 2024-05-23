@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Patient } from 'src/app/classes/patient';
 import { RendezVous } from 'src/app/classes/rendez-vous';
+import { PatientService } from 'src/app/services/patient.service';
 import { RendezVousService } from 'src/app/services/rendez-vous.service';
 
 @Component({
@@ -45,15 +46,24 @@ export class CalendrierRDVComponent implements OnInit{
   patientsTest:Patient[]=[];
   patients:Patient[]=[];
   //appointmentsData!: RendezVous[];
-  constructor(private rdvService:RendezVousService,private fb:FormBuilder){}
+  constructor(private rdvService:RendezVousService,private fb:FormBuilder,private patientServ:PatientService){}
   ngOnInit(): void {
     this.form=this.fb.group({
      // heure:[5],
       text:['pnemonie'],
+      lesPatients:[],
       //dateRdv: ['2024-01-01T00:00'], 
       //enddate: []
-    
     });
+    this.patientServ.getAllPatients().subscribe(
+      data => {
+        this.patients = data;
+        if (this.patients.length > 0) {
+          this.form.get('lesPatients')?.setValue(this.patients[0]);
+        }
+      },
+      error => console.error('Error fetching patients:', error)
+    );
     // this.patientsTest=this.patientServ.getPatientsTest();
     // this.patientServ.getPatients().subscribe(data=>this.patients=data);
     this.rdvService.getrv().subscribe(data=>this.rvs=data);
@@ -65,7 +75,7 @@ export class CalendrierRDVComponent implements OnInit{
     // });
   }
     //this.http.get('http://localhost:8084/rendezvous').subscribe( data => console.log(data));
-  
+
   
   
     

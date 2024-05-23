@@ -154,5 +154,33 @@ export class AjouterOrdonnanceComponent implements OnInit {
       }
     );
   }
+  deleteMedicament(medicamentId: number, ordonnanceId: number): void {
+    this.ordonnanceService.deleteMedicament(medicamentId).subscribe(
+      () => {
+        console.log('Medicament supprimé avec succès');
+        alert('Medicament supprimé avec succès');
+        const ordonnance = this.ordonnances.find(o => o.id === ordonnanceId);
+        if (ordonnance) {
+          ordonnance.medicaments = ordonnance.medicaments.filter(m => m.id !== medicamentId);
+        }
+      },
+      (error) => {
+        console.error('Error deleting medicament', error);
+      }
+    );
+  }
+
+  deleteOrdonnance(ordonnanceId: number): void {
+    this.ordonnanceService.deleteOrdonnance(ordonnanceId).subscribe(
+      () => {
+        console.log('Ordonnance supprimée avec succès');
+        alert('Ordonnance supprimée avec succès');
+        this.ordonnances = this.ordonnances.filter(o => o.id !== ordonnanceId);
+      },
+      (error) => {
+        console.error('Error deleting ordonnance', error);
+      }
+    );
+  }
 }
 

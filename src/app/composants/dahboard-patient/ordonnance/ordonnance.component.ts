@@ -10,45 +10,54 @@ import { OrdonnanceService } from 'src/app/services/ordonnance.service';
   templateUrl: './ordonnance.component.html',
   styleUrls: ['./ordonnance.component.css']
 })
-export class OrdonnanceComponent  implements OnInit {
+export class OrdonnanceComponent implements OnInit{
   id: number = 0;
   ordonnances: Ordonnace[] = [];
   searchDate: Date = new Date();
-  id_dossier_medical!: any;
-  id_patient!:number;
-  dossierMedical!: number;
-  showMedicamentForm: boolean = false;  // New variable for Medicament form
-  showOrdonnanceForm: boolean = false;  // New variable for Ordonnance form
+  medicaments: Medicament[] = [];
 
   constructor(
     private router: Router,
     private http: HttpClient,
     private route: ActivatedRoute,
-    private ordonnanceService: OrdonnanceService,
-  ) {
-    
-  }
+    private ordonnanceService: OrdonnanceService
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
-      });
       this.getOrdonnances();
-    }
-
+    });
+  }
   
 
   getOrdonnances(): void {
+    // this.ordonnanceService.getOrdonnances(this.id).subscribe(ordonnances => {
+    //   this.ordonnances = ordonnances;
+    //   this.ordonnances.forEach(ordonnance => {
+    //     this.ordonnanceService.getMedicaments().subscribe(medicaments => {
+    //       this.medicaments = medicaments;
+    //     });
+    //   });
+    // });
+
+
     this.ordonnanceService.getOrdonnances(this.id).subscribe(ordonnances => {
       this.ordonnances = ordonnances;
       this.ordonnances.forEach(ordonnance => {
-        this.ordonnanceService.findMedicamentsByOrdonnanceByidPatient(ordonnance.id, this.id_dossier_medical).subscribe(medicaments => {
-          ordonnance.medicaments = medicaments;
+        this.ordonnanceService.findMedicamentsByOrdonnanceByidPatient(ordonnance.id,this.id).subscribe(medicaments => {
+          this.medicaments = medicaments;
         });
       });
     });
+
+    
   }
 
+
+
+
+ 
   imprimerOrdonnance(ordonnanceId: number) {
     const ordonnanceContentId = 'ordonnanceContent_' + ordonnanceId;
     const contenu = document.getElementById(ordonnanceContentId);
@@ -73,13 +82,11 @@ export class OrdonnanceComponent  implements OnInit {
 
   rechercherOrdonnancesParDate(): void {
     if (this.searchDate) {
-      this.ordonnanceService.getOrdonnancesByDate(this.searchDate, this.id_dossier_medical)
+      this.ordonnanceService.getOrdonnancesByDate(this.searchDate, this.id)
         .subscribe(ordonnances => this.ordonnances = ordonnances);
     } else {
       this.getOrdonnances();
     }
   }
-
-
 }
 

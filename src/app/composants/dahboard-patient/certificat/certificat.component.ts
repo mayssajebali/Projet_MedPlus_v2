@@ -70,4 +70,5 @@ export class CertificatComponent implements OnInit{
       console.error("L'élément d'ordonnance n'a pas été trouvé.");
     }
   }
+
 }

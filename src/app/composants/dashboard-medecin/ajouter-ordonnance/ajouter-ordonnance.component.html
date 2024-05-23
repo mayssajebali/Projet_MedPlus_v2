@@ -15,11 +15,14 @@
         <hr>
         <h4>Medicament n°: {{ j + 1 }}</h4>
         <hr>
-        <p>Nom: {{ medicament.nom_medicament }}</p>
+        <p>Nom: {{ medicament.nom_medicament }}<button (click)="deleteMedicament(medicament.id, ordonnance.id)" class="btn btn-danger" style="float: right;"><i class="fa-solid fa-trash"></i></button></p>
         <p>Dosage: {{ medicament.dosage_medicament }}</p>
         <p>Nombre de fois par jour: {{ medicament.nbr_fois_par_jour }}</p>
         <p>Durée: {{ medicament.duree }}</p>
+       
       </div>
+      <hr>
+      <button (click)="deleteOrdonnance(ordonnance.id)" class="btn btn-danger" style="float:right">Supprimer Ordonnance</button>
     </div>
   </div>
 <hr>

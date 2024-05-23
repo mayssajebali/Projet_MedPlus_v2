@@ -20,4 +20,8 @@ export class ConsultationService {
     const url = `${this.Url}/search/${id}?date=${date}`;
     return this.http.get<Consultation[]>(url);
   }
+
+  getAllConsultations():Observable<Consultation[]> {
+    return this.http.get<Consultation[]>(this.Url);
+  }
 }
