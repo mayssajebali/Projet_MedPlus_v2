@@ -22,6 +22,12 @@ import { AjouterCertificatComponent } from './composants/dashboard-medecin/ajout
 import { DiscussionPatientComponent } from './composants/dahboard-patient/discussion-patient/discussion-patient.component';
 import { ProfilPatientComponent } from './composants/dahboard-patient/profil-patient/profil-patient.component';
 import { ConsulterComponent } from './composants/dashboard-medecin/consulter/consulter.component';
+import { StatistiquesSecretaireComponent } from './composants/dashboard-secretaire/statistiques-secretaire/statistiques-secretaire.component';
+import { AjouterRendeVousComponent } from './composants/dahboard-patient/ajouter-rende-vous/ajouter-rende-vous.component';
+import { RendezVousComponent } from './composants/dashboard-medecin/rendez-vous/rendez-vous.component';
+import { CreerCompteMedecinComponent } from './composants/dashboard-medecin/creer-compte-medecin/creer-compte-medecin.component';
+import { CreerCompteSecretaireComponent } from './composants/dashboard-secretaire/creer-compte-secretaire/creer-compte-secretaire.component';
+import { ModifierpatientComponent } from './composants/dahboard-patient/modifierpatient/modifierpatient.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/first-page', pathMatch: 'full' },
@@ -43,7 +49,14 @@ const routes: Routes = [
   {path:'modifierMedecin',title:'Modifier profil medecin',component:UpdateMedecinComponent},
   {path:'calendrier',title:'calendrier',component:CalendrierRDVComponent},
   { path:'discussion-patient',title:'discussions ', component:DiscussionPatientComponent },
-  { path: 'profil-patient',title:'Mon profil ', component:ProfilPatientComponent},
+  { path:'profil-patient',title:'Mon profil', component:ProfilPatientComponent},
+  { path:'statistiques-secretaire',title:'Mon profil', component:StatistiquesSecretaireComponent},
+  { path:'ajouter-rendez-vous',title:'Ajouter rendez-value', component:AjouterRendeVousComponent},
+  { path: 'consulter-rendez-vous',title:'tous les rendez-vous', component:RendezVousComponent},
+  {path: 'creer-compte-medecin',title:'creer compte',component:CreerCompteMedecinComponent},
+  {path: 'creer-compte-secretaire',title:'creer compte',component:CreerCompteSecretaireComponent},
+  {path: 'modifierpatient',title:'modifier mon profil',component:ModifierpatientComponent},
+  {path: 'stat',title:'statistiques',component:StatistiquesSecretaireComponent},
   {path:'dash-patient',title:'espace patient',component:DashboardPatientComponent,
   children:[
    { path: 'historique',title:'Mon Historique Médical', component:HistoriqueMedicalComponent },
@@ -52,6 +65,7 @@ const routes: Routes = [
     { path: '',redirectTo:'historique',pathMatch:'full'},
     
 ]},
+
   {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'**',title:'erreur',component:ErreurComponent}
 ];

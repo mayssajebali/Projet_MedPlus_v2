@@ -1,0 +1,174 @@
+<div class="container-scroller">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" (click)="AllerVers('/dash-patient')">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Dossier Médical</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="AllerVers('/ajouter-rendez-vous')" routerLinkActive="active">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Rendez-vous</span>
+              
+            </a>
+           
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="AllerVers('/discussion-patient')" routerLinkActive="active">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Discussion</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="AllerVers('/profil-patient')"  routerLinkActive="active">
+                <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Profil</span>
+            </a>
+        </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Déconnexion</span>
+            </a>
+          </li>
+        </ul>
+      </nav>     <div class="content-wrapper">
+  <!-- {{patientsTest|json}}
+  {{patients|json}} -->
+  <br><br>
+  <!-- {{appointments|json}} -->
+  <!-- (onCellClick)="addRdv($event)" -->
+  <!-- America/Los_Angeles -->
+  <!--calender-->
+  <div style="margin: 10px;">
+    <dx-scheduler
+    timeZone="Africa/Lagos"
+    [dataSource]="rvs"
+    [views]="['day', 'week', 'workWeek', 'month']"
+    currentView="day"
+    [currentDate]="currentDate"
+    [startDayHour]="9"
+    [height]="500"
+    
+    (onCellClick)="disableAllCells($event)"
+    
+    (onAppointmentFormOpening)="disableAppointmentForm($event)" 
+    (onAppointmentDeleting)="ondelete($event)"
+  >
+  <!-- <div *dxTemplate="let data of 'cell'">
+    <div [ngStyle]="getCellStyles(data.date)">
+        {{ data.text }}
+    </div>
+  </div> -->
+  <!-- <div 
+      *dxTemplate="let data of 'cell'"
+      [ngClass]="{ 'selected-date': data.date === highlightedDate }">
+      {{ data.text }}
+    </div> -->
+  </dx-scheduler>
+  
+  </div>
+  <!-- <button type="submit" (click)="ondelete()" >delete</button> -->
+  <!--calender-->
+  <!-- <div *ngIf="seen">
+    <form action="" (ngSubmit)="ajoutRDv()">
+      <div>
+        <label for="">donnez l'heure</label>
+        <input type="heure" [(ngModel)]="heure" name="heure" >
+      </div>
+      <div>
+        <label for="">donnez le text</label>
+        <input type="text" [(ngModel)]="text" name="text" >
+      </div>
+      
+      
+      
+      <div>
+        <label> Donnez le debut du rendezVous</label>
+        <input type="datetime-local" [(ngModel)]="debutDate" name="debutDate" > 
+      </div>
+      <div>
+        <label> Donnez la fin du rendezVous</label>
+        <input type="datetime-local" [(ngModel)]="finDate" name="finDate" > 
+      </div>
+      <button type="submit"> ajouter rdv</button>
+  </form>
+  </div> -->
+  
+  <div class="container card"  style="margin: 10px;">
+    <!-- *ngIf="seen" -->
+    <div class="card-body">
+    <h2> Ajout d'un rendez-vous</h2>
+    <form [formGroup]="form" >
+      <div>
+        <label> Clicked Date </label>
+        <input type="text" [value]="clickedDate" disabled>
+      </div>
+      <!-- <div>
+        <label> la date du rendez-vous</label>
+        <input type="date" formControlName="startdate"> 
+      </div> -->
+        <!-- <div>
+            <label> Donnez l'heure</label>
+            <input type="text"  formControlName="heure">
+        </div> -->
+  
+       
+        
+        <!-- <div>
+          <label> Donnez la fin du rendezVous</label>
+          <input type="datetime-local" formControlName="enddate"> 
+        </div> -->
+  
+        
+  
+        <div>
+          <label> Veuillez choisir l'heure du rendez-vous</label>
+          <div style="display: flex;justify-content: space-around;">
+            <button type="button" (click)="setAppointmentTime('09:00')" class="btn btn-light">09:00</button>
+        <button type="button" (click)="setAppointmentTime('09:30')" class="btn btn-light">09:30</button>
+        <button type="button" (click)="setAppointmentTime('10:00')" class="btn btn-light">10:00</button>
+        <button type="button" (click)="setAppointmentTime('10:30')" class="btn btn-light">10:30</button>
+        <button type="button" (click)="setAppointmentTime('11:00')" class="btn btn-light">11:00</button>
+        <button type="button" (click)="setAppointmentTime('11:30')" class="btn btn-light">11:30</button>
+        <button type="button" (click)="setAppointmentTime('12:00')" class="btn btn-light">12:00</button>
+        <button type="button" (click)="setAppointmentTime('14:00')" class="btn btn-light">14:00</button>
+        <button type="button" (click)="setAppointmentTime('14:30')" class="btn btn-light">14:30</button>
+        <button type="button" (click)="setAppointmentTime('15:00')" class="btn btn-light">15:00</button>
+        <button type="button" (click)="setAppointmentTime('15:30')" class="btn btn-light">15:30</button>
+        <button type="button" (click)="setAppointmentTime('16:00')" class="btn btn-light">16:00</button>
+
+          </div>
+        </div>
+  
+        <div>
+          <label> Donnez le motif du rendez-vous</label>
+          <input type="text" formControlName="text">
+      </div>
+  
+ 
+  
+      <button class="btn btn-primary"(click)="addRdv()">Confirmer</button>
+      <button class="btn btn-primary" (click)="onReset()">Anuller</button>
+        <!-- <input type="button" value="Anuller" (click)="onReset()"> -->
+    </form>
+  </div>
+  </div>
+  
+  
+  
+  
+
+  </div></div></div>
+  <script src="https://cdn3.devexpress.com/jslib/21.2.5/js/dx.all.js"></script>
+  <script src="https://cdn3.devexpress.com/jslib/21.2.5/js/localization/dx.messages.fr.js"></script>
+  
+  <script>
+    DevExpress.localization.locale("fr");
+  </script>
+  

@@ -1,0 +1,65 @@
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper">
+      <div class="content-wrapper">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Modifier le profil</h4>
+              <p class="card-description">Modifier votre profil</p>
+              <form formGroup="patientForm" (ngSubmit)="onModifier()">
+                <div class="form-group">
+                  <label for="exampleInputName1">Nom</label>
+                  <input type="text" class="form-control" formControlName="nom" placeholder="Nom">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPrenom">Prenom</label>
+                  <input type="text" class="form-control" formControlName="prenom" placeholder="Prenom">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputAdresse">Adresse</label>
+                  <input type="text" class="form-control" formControlName="adresse" placeholder="Adresse">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputTelephone">Téléphone</label>
+                  <input type="text" class="form-control" formControlName="telephone" placeholder="Téléphone">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail">Email</label>
+                  <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword">Mot de passe</label>
+                  <input type="password" class="form-control" formControlName="mot_de_passe" placeholder="Mot de passe">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputSexe">Sexe</label>
+                  <select class="form-control" formControlName="sexe">
+                    <option value="">Sélectionnez</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputDateNaissance">Date de Naissance</label>
+                  <input type="date" class="form-control" formControlName="date_de_naissance">
+                </div>
+                <div class="form-group">
+                  <label>File upload</label>
+                  <input type="file" name="img[]" class="file-upload-default">
+                  <div class="input-group col-xs-12">
+                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                    <span class="input-group-append">
+                      <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                    </span>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2" [disabled]="!patientForm.valid">Soumettre</button>
+                <button class="btn btn-light" routerLink="/patient">Annuler</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -7,6 +7,5 @@ export class Medecin {
         public telephone_medecin: string,
         public mail_medecin:string,
         public mot_de_passe_medecin: string,
-        public id_calendrier : number
     ){}
 }

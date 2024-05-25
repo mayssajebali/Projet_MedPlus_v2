@@ -30,11 +30,15 @@ export class DashboardMedecinComponent implements OnInit, OnDestroy {
   nbDiscussions:number=0;
   id:number=0;
   constructor(private sseService: PatientService,private ConsultationService:ConsultationService,
-    private discussionService:DiscussionService,  private route: ActivatedRoute
+    private discussionService:DiscussionService,  private route: ActivatedRoute,private router:Router
 
   ) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+  
+    });
     this.subscribeToSse();
     this.sseService.getAllPatients().subscribe((data)=>{this.patients=data 
     this.nbPaltients=this.patients.length;});
@@ -46,10 +50,7 @@ export class DashboardMedecinComponent implements OnInit, OnDestroy {
       this.sseService.getDiscussions().subscribe((data)=>{this.discussion=data 
         this.nbDiscussions=this.discussion.length;});
 
-      this.route.queryParams.subscribe(params => {
-          this.id = params['id'];
-      
-        });
+     
     }
 
   subscribeToSse() {
@@ -77,4 +78,9 @@ export class DashboardMedecinComponent implements OnInit, OnDestroy {
     const seconds = now.getSeconds().toString().padStart(2, '0');
     this.tempsActuelle = `${hours}:${minutes}:${seconds}`;
   }
+
+  AllerVers(path: string): void {
+    this.router.navigate([path], { queryParams: { id:this.id} });
+  }
+  
 }

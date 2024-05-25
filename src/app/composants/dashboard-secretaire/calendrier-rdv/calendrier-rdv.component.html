@@ -1,11 +1,24 @@
 <div class="container-scroller">
   <app-navbar></app-navbar>
   <div class="container-fluid page-body-wrapper">
-  <app-sidebarnav></app-sidebarnav>
-  <div class="content-wrapper">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" (click)='AllerVers("/stat")' routerLinkActive="active">
+            <i class="icon-grid menu-icon"></i>
+            <span class="menu-title">Statistiques</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)='AllerVers("/calendrier")' routerLinkActive="active">
+            <i class="icon-grid menu-icon"></i>
+            <span class="menu-title">Calendrier</span>
+          </a>
+        </li>
+      </ul>
+    </nav>  <div class="content-wrapper">
 <!-- {{patientsTest|json}}
 {{patients|json}} -->
-{{rvs|json}}
 <br><br>
 <!-- {{appointments|json}} -->
 <!-- (onCellClick)="addRdv($event)" -->
@@ -97,10 +110,18 @@
       <div>
         <label> Veuillez choisir l'heure du rendez-vous</label>
         <div style="display: flex;justify-content: space-around;">
-          <button type="button" (click)="setAppointmentTime('09:00')">09:00</button>
-      <button type="button" (click)="setAppointmentTime('10:00')">10:00</button>
-      <button type="button" (click)="setAppointmentTime('09:30')">09:30</button>
-      <button type="button" (click)="setAppointmentTime('14:00')">14:00</button>
+        <button type="button" (click)="setAppointmentTime('09:00')" class="btn btn-light">09:00</button>
+        <button type="button" (click)="setAppointmentTime('09:30')" class="btn btn-light">09:30</button>
+        <button type="button" (click)="setAppointmentTime('10:00')" class="btn btn-light">10:00</button>
+        <button type="button" (click)="setAppointmentTime('10:30')" class="btn btn-light">10:30</button>
+        <button type="button" (click)="setAppointmentTime('11:00')" class="btn btn-light">11:00</button>
+        <button type="button" (click)="setAppointmentTime('11:30')" class="btn btn-light">11:30</button>
+        <button type="button" (click)="setAppointmentTime('12:00')" class="btn btn-light">12:00</button>
+        <button type="button" (click)="setAppointmentTime('14:00')" class="btn btn-light">14:00</button>
+        <button type="button" (click)="setAppointmentTime('14:30')" class="btn btn-light">14:30</button>
+        <button type="button" (click)="setAppointmentTime('15:00')" class="btn btn-light">15:00</button>
+        <button type="button" (click)="setAppointmentTime('15:30')" class="btn btn-light">15:30</button>
+        <button type="button" (click)="setAppointmentTime('16:00')" class="btn btn-light">16:00</button>
         </div>
       </div>
 
@@ -127,30 +148,7 @@
 
 
 
-<!--table-->
-<div class="col-md-15 stretch-card grid-margin">
-  <div class="card">
-    <div class="card-body">
-      <p class="card-title">Patients</p>
-      <ul class="icon-data-list" *ngFor="let p of patients;index as i; count as nb">
-        <li>
-          <div class="d-flex" style="margin: 20px;">
-            <img src="assets/images/faces/face1.jpg" alt="user">
-            <div>
-              <p class="text-info mb-1">{{p.nom}}</p>
-              <!-- <p class="mb-0">patient {{i}} / {{nb}}</p> -->
-              <small>{{p.id_patient}}</small>
-              <!-- <p class="mb-0">{{p.prenom}}</p> -->
-            </div>
-            <div > <br><p class="mb-0">patient {{i}} / {{nb}}          {{p.prenom}}</p></div>
-            <!-- <div><br><p class="mb-0">{{p.prenom}}</p></div> -->
-          </div>
-        </li> <br> 
-        
-      </ul>
-    </div>
-  </div>
-</div>
+
 </div></div></div>
 <script src="https://cdn3.devexpress.com/jslib/21.2.5/js/dx.all.js"></script>
 <script src="https://cdn3.devexpress.com/jslib/21.2.5/js/localization/dx.messages.fr.js"></script>

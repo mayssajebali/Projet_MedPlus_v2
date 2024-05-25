@@ -6,25 +6,22 @@
   </div>
 
   <div *ngIf="ordonnances">
-    <div *ngFor="let ordonnance of ordonnances" class="card mb-3">
-      
+    <div *ngFor="let ordonnance of ordonnances; let i = index">
       <div class="card-header">
-        <h5 class="card-title">Ordonnance n°:  {{ordonnance.id + 1}} </h5>
+        <h3>Ordonnance n°: {{ i + 1 }}</h3>
       </div>
-  
-      <div class="card-body">
-        <button class="btn btn-primary" (click)="imprimerOrdonnance(ordonnance.id)" style="float:right">Imprimer</button>
-        <div [id]="'ordonnanceContent_' + ordonnance.id">
-          
-         
-        </div>
-   
-        <div class="card-footer align-self-center" style="float: right;">
-          <p class="card-text" style="font-size: 11px;"> le {{ordonnance.date_creation | date: 'dd/MM/yyyy'}}</p>
-          <img src="../../assets/images/signature.svg" alt="Signature du médecin" width="55px">
-          
-        </div>
+      <p>Date de création: {{ ordonnance.date_creation | date }}</p>
+      <div *ngFor="let medicament of ordonnance.medicaments; let j = index">
+        <hr>
+        <h4>Medicament n°: {{ j + 1 }}</h4>
+        <hr>
+        <p>Nom: {{ medicament.nom_medicament }}</p>
+        <p>Dosage: {{ medicament.dosage_medicament }} ml</p>
+        <p>Nombre de fois par jour: {{ medicament.nbr_fois_par_jour }} pendant {{ medicament.duree }} Jours</p>
+        <img src="../../assets/images/signature.svg" alt="Signature du médecin" width="55px">
       </div>
+      <button class="btn btn-primary" (click)="imprimerOrdonnance(ordonnance.id)" style="float:right">Imprimer</button>
     </div>
   </div>
+
 </div>

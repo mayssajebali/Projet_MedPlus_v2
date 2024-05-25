@@ -15,11 +15,14 @@ constructor(private patientService:PatientService,private route:ActivatedRoute,p
   
   patients:Patient[] =[];
   discussions: any[] = [];
- 
+  id:number=0;
   discussionSubscription: Subscription = new Subscription;
   ngOnInit(): void {
     this.loadPatients();
-
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+  
+    });
 
   }
   loadPatients() {
@@ -40,4 +43,8 @@ constructor(private patientService:PatientService,private route:ActivatedRoute,p
   consulterPatient(id:number){
     this.router.navigate(['/patients/', id])
  }
+ AllerVers(path: string): void {
+  this.router.navigate([path], { queryParams: { id:this.id} });
+}
+
 }

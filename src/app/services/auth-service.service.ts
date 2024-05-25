@@ -26,7 +26,10 @@ export class AuthServiceService {
     const url = `${this.baseUrl}/patient?email=${email}&password=${password}`;
     return this.http.get<number>(url);
   }
-
+  public findIdMedecin(email:string,password:string): Observable<number> {
+    const url = `${this.baseUrl}/medecin?email=${email}&password=${password}`;
+    return this.http.get<number>(url);
+  }
   // logout(): Observable<any> {
   //   return this.http.post(`${this.baseUrl}/logout`, {});
   // }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Medecin } from 'src/app/classes/medecin';
 import { MedecinService } from 'src/app/services/medecin.service';
 
@@ -13,11 +13,15 @@ export class UpdateMedecinComponent implements OnInit{
   medecin: any = {};
   medecinId!:any;
   fileUpload: any;
-  constructor(private medecinService:MedecinService,private route:ActivatedRoute){}
+  id:number=0;
+  constructor(private medecinService:MedecinService,private route:ActivatedRoute,private router:Router){}
   ngOnInit(): void {
    this.medecinId=1001;
     this.medecinService.getMedecintById(1001).subscribe(data => {
       this.medecin = data;
+    });
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
     });
   }
  
@@ -33,6 +37,10 @@ export class UpdateMedecinComponent implements OnInit{
   }
 
     
- 
+   
+  AllerVers(path: string): void {
+    this.router.navigate([path], { queryParams: { id:this.id} });
+  } 
+
 
 }

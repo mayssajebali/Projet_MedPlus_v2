@@ -173,7 +173,51 @@
    </div>
    <!-- partial -->
    <!-- partial:partials/_sidebar.html -->
- <app-sidebarnav></app-sidebarnav>
+   <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" (click)='AllerVers("/dash-medecin")' routerLinkActive="active">
+          <i class="icon-grid menu-icon"></i>
+          <span class="menu-title">Statistiques</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  (click)='AllerVers("/patients")'>
+          <i class="icon-layout menu-icon"></i>
+          <span class="menu-title">Dossiers Medicaux</span>
+          
+        </a>
+       
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  (click)='AllerVers("/consulter-rendez-vous")'>
+          <i class="icon-layout menu-icon"></i>
+          <span class="menu-title">Rendez Vous</span>
+          
+        </a>
+       
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  (click)='AllerVers("/discussion")' routerLinkActive="active">
+          <i class="icon-grid menu-icon"></i>
+          <span class="menu-title">Discussions</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)='AllerVers("/medecin")'>
+          <i class="icon-paper menu-icon"></i>
+          <span class="menu-title">Profil</span>
+        </a>
+    </li>
+    
+      <li class="nav-item">
+        <a class="nav-link" (click)='AllerVers("/login")'>
+          <i class="icon-paper menu-icon"></i>
+          <span class="menu-title">Déconnexion</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
   <div class="content-wrapper">
     <h3>Discussions</h3>

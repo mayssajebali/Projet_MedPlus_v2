@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from 'src/app/classes/patient';
 import { RendezVous } from 'src/app/classes/rendez-vous';
 import { PatientService } from 'src/app/services/patient.service';
@@ -45,13 +46,19 @@ export class CalendrierRDVComponent implements OnInit{
     // }]
   patientsTest:Patient[]=[];
   patients:Patient[]=[];
+  id:number=0;
   //appointmentsData!: RendezVous[];
-  constructor(private rdvService:RendezVousService,private fb:FormBuilder,private patientServ:PatientService){}
+  constructor(private rdvService:RendezVousService,private fb:FormBuilder,private patientServ:PatientService,
+    private route:ActivatedRoute,private router:Router)
+{}
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+    });
     this.form=this.fb.group({
      // heure:[5],
       text:['pnemonie'],
-      lesPatients:[],
+      lesPatient:[],
       //dateRdv: ['2024-01-01T00:00'], 
       //enddate: []
     });
@@ -59,7 +66,7 @@ export class CalendrierRDVComponent implements OnInit{
       data => {
         this.patients = data;
         if (this.patients.length > 0) {
-          this.form.get('lesPatients')?.setValue(this.patients[0]);
+          this.form.get('lesPatient')?.setValue(this.patients[0]);
         }
       },
       error => console.error('Error fetching patients:', error)
@@ -147,20 +154,20 @@ export class CalendrierRDVComponent implements OnInit{
       //let p=new RendezVous(0,this.form.get('startdate')?.value,this.form.get('enddate')?.value,this.form.get('heure')?.value,this.form.get('text')?.value);
       //const rv=(this.form.get('startdate')?.value,this.form.get('enddate')?.value,this.form.get('heure')?.value,this.form.get('text')?.value);
       const rendezVous = new RendezVous(
-        0, // Assuming 0 is a placeholder for ID when creating a new rendezvous
-        selectedDate, // Convert start date to ISO string
+        0, 
+        selectedDate, 
       
-        endDate, // Convert end date to ISO string
+        endDate, 
         //this.form.get('heure')?.value,
         this.form.get('text')?.value,
-        this.pat
+        this.form.get('lesPatient')?.value,
       );
       //this.patientServ.addRdv(rendezVous).subscribe(data=>this.rvs.push(data));
       
       this.rdvService.addRdv(rendezVous).subscribe(
         data => {
           if (data!=null){this.rvs.push(data);}
-          
+          else{alert("la date est déjà prise")}
         },
         error => {
           // If addition fails, handle the error
@@ -193,6 +200,9 @@ export class CalendrierRDVComponent implements OnInit{
     return {}; // Return empty style for available dates
   }
   
+  AllerVers(path: string): void {
+    this.router.navigate([path], { queryParams: { id:this.id} });
+  } 
 
 
 }

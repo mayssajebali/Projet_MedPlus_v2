@@ -18,7 +18,8 @@
         <p class="card-text">Nombre de jours de repos : {{ certificat.nbr_jour_repos }}</p>
         <p class="card-text">Date de repos : {{ certificat.date_repos }}</p>
         <p class="card-text">{{ certificat.commentaire }}</p>
-      
+        <img src="../../assets/images/signature.svg" alt="Signature du médecin" width="55px">
+
       </div>
     </div>
   </div>
@@ -40,7 +41,7 @@
           <label >Commentaire</label>
          <textarea formControlName="commentaire"></textarea>
         </div>
-       
+
       
         <button type="submit" class="btn btn-primary mr-2" >Submit</button>
         <button class="btn btn-light" routerLink="/medecin">Cancel</button>

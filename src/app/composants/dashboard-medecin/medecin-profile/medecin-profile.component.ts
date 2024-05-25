@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Medecin } from 'src/app/classes/medecin';
 import { MedecinService } from 'src/app/services/medecin.service';
 
@@ -10,10 +10,13 @@ import { MedecinService } from 'src/app/services/medecin.service';
 })
 export class MedecinProfileComponent implements OnInit{
   medecin!: Medecin;
-
-  constructor(private medecinService:MedecinService,private router:Router){}
+id:number=0;
+  constructor(private medecinService:MedecinService,private router:Router ,private route:ActivatedRoute){}
   ngOnInit(): void {
-    this.loadMedecin(1001);
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+      this.loadMedecin(this.id );
+    });
   }
   loadMedecin(id: number): void {
     this.medecinService.getMedecintById(id).subscribe((data: Medecin) => {
@@ -22,6 +25,8 @@ export class MedecinProfileComponent implements OnInit{
         console.log('Erreur lors du chargement du médecin : ', error);
       });
   }
-
+  AllerVers(path: string): void {
+    this.router.navigate([path], { queryParams: { id:this.id} });
+  } 
 
 }

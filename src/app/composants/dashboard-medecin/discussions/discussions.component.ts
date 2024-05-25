@@ -31,7 +31,7 @@ export class DiscussionsComponent implements OnInit,OnDestroy  {
 discussions:Discussion[] = [];
 previousDiscussionsLength: number = 0;
 filteredDiscussions: Discussion[] = [];
-
+id:number=0;
   constructor(private patientService:PatientService,private router:Router,
     private route:ActivatedRoute,private discussionService:DiscussionService,private sseService: PatientService) {}
 
@@ -39,7 +39,10 @@ filteredDiscussions: Discussion[] = [];
    
     this.loadPatients();
     this.subscribeToSse();
-
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+  
+    });
   }
   ngOnDestroy(): void {
     if (this.sseSubscription) {
@@ -186,7 +189,9 @@ loadPatients() {
       return null;
     }
 */
-    
+AllerVers(path: string): void {
+  this.router.navigate([path], { queryParams: { id:this.id} });
+} 
   }
 
 

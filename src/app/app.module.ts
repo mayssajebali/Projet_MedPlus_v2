@@ -33,6 +33,13 @@ import { DiscussionPatientComponent } from './composants/dahboard-patient/discus
 import { ProfilPatientComponent } from './composants/dahboard-patient/profil-patient/profil-patient.component';
 import { ConsulterComponent } from './composants/dashboard-medecin/consulter/consulter.component';
 import { StatistiquesSecretaireComponent } from './composants/dashboard-secretaire/statistiques-secretaire/statistiques-secretaire.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { AjouterRendeVousComponent } from './composants/dahboard-patient/ajouter-rende-vous/ajouter-rende-vous.component';
+import { RendezVousComponent } from './composants/dashboard-medecin/rendez-vous/rendez-vous.component';
+import { CreerCompteMedecinComponent } from './composants/dashboard-medecin/creer-compte-medecin/creer-compte-medecin.component';
+import { CreerCompteSecretaireComponent } from './composants/dashboard-secretaire/creer-compte-secretaire/creer-compte-secretaire.component';
+import { DahboardPatientComponent } from './dahboard-patient/dahboard-patient.component';
+import { ModifierpatientComponent } from './composantq/dahboard-patient/modifierpatient/modifierpatient.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +70,12 @@ import { StatistiquesSecretaireComponent } from './composants/dashboard-secretai
     ProfilPatientComponent,
     ConsulterComponent,
     StatistiquesSecretaireComponent,
+    AjouterRendeVousComponent,
+    RendezVousComponent,
+    CreerCompteMedecinComponent,
+    CreerCompteSecretaireComponent,
+    DahboardPatientComponent,
+    ModifierpatientComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +84,7 @@ import { StatistiquesSecretaireComponent } from './composants/dashboard-secretai
     FormsModule,
     ReactiveFormsModule,
     DxSchedulerModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

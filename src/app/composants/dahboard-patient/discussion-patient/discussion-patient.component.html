@@ -183,7 +183,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="AllerVers('/rendez-vous')" routerLinkActive="active">
+        <a class="nav-link" (click)="AllerVers('/ajouter-rendez-vous')" routerLinkActive="active">
           <i class="icon-layout menu-icon"></i>
           <span class="menu-title">Rendez-vous</span>
           
@@ -210,7 +210,7 @@
         </a>
       </li>
     </ul>
-  </nav>   <div class="content-wrapper">
+  </nav>    <div class="content-wrapper">
     <h4>Discussion avec votre médecin: </h4>
     <div class="input-group rounded">
       <input type="search" class="form-control rounded" placeholder="chercher un message" aria-label="Search" aria-describedby="search-addon"  [(ngModel)]="searchTerm"
@@ -266,7 +266,7 @@
           
           <div [ngClass]="getMessageClass(m)"> <p>{{ m.message }}<br><span style="color: gray;font-size: 13px;">{{m.date_discussion}}</span></p> </div>
           <span *ngIf="getProfil(m)==false">
-            <img src="assets/images/custom/patient4.png" alt="profile" class="profil-patient" />
+            <img src="../assets/images/patientfemme.png" alt="profile" class="profil-patient" />
           </span>
         </div>
       </div>

@@ -1,0 +1,122 @@
+<div class="container-scroller">
+    <app-navbar></app-navbar>
+    <div class="container-fluid page-body-wrapper">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" (click)='AllerVers("/dash-medecin")' routerLinkActive="active">
+                  <i class="icon-grid menu-icon"></i>
+                  <span class="menu-title">Statistiques</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  (click)='AllerVers("/patients")'>
+                  <i class="icon-layout menu-icon"></i>
+                  <span class="menu-title">Dossiers Medicaux</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  (click)='AllerVers("/consulter-rendez-vous")'>
+                  <i class="icon-layout menu-icon"></i>
+                  <span class="menu-title">Rendez Vous</span>
+                  
+                </a>
+               
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  (click)='AllerVers("/discussion")' routerLinkActive="active">
+                  <i class="icon-grid menu-icon"></i>
+                  <span class="menu-title">Discussions</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)='AllerVers("/medecin")'>
+                  <i class="icon-paper menu-icon"></i>
+                  <span class="menu-title">Profil</span>
+                </a>
+            </li>
+            
+              <li class="nav-item">
+                <a class="nav-link" (click)='AllerVers("/login")'>
+                  <i class="icon-paper menu-icon"></i>
+                  <span class="menu-title">Déconnexion</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    <div class="content-wrapper">
+  <!-- {{patientsTest|json}}
+  {{patients|json}} -->
+  <br><br>
+  <!-- {{appointments|json}} -->
+  <!-- (onCellClick)="addRdv($event)" -->
+  <!-- America/Los_Angeles -->
+  <!--calender-->
+  <div style="margin: 10px;">
+    <dx-scheduler
+    
+    timeZone="Africa/Lagos"
+    [dataSource]="rvs"
+    [views]="['day', 'week', 'workWeek', 'month']"
+    currentView="day"
+    [currentDate]="currentDate"
+    [startDayHour]="9"
+    [height]="500"
+    
+    (onCellClick)="disableAllCells($event)"
+    
+    (onAppointmentFormOpening)="disableAppointmentForm($event)" 
+    (onAppointmentDeleting)="ondelete($event)"
+  >
+  <!-- <div *dxTemplate="let data of 'cell'">
+    <div [ngStyle]="getCellStyles(data.date)">
+        {{ data.text }}
+    </div>
+  </div> -->
+  <!-- <div 
+      *dxTemplate="let data of 'cell'"
+      [ngClass]="{ 'selected-date': data.date === highlightedDate }">
+      {{ data.text }}
+    </div> -->
+  </dx-scheduler>
+  
+  </div>
+  <!-- <button type="submit" (click)="ondelete()" >delete</button> -->
+  <!--calender-->
+  <!-- <div *ngIf="seen">
+    <form action="" (ngSubmit)="ajoutRDv()">
+      <div>
+        <label for="">donnez l'heure</label>
+        <input type="heure" [(ngModel)]="heure" name="heure" >
+      </div>
+      <div>
+        <label for="">donnez le text</label>
+        <input type="text" [(ngModel)]="text" name="text" >
+      </div>
+      
+      
+      
+      <div>
+        <label> Donnez le debut du rendezVous</label>
+        <input type="datetime-local" [(ngModel)]="debutDate" name="debutDate" > 
+      </div>
+      <div>
+        <label> Donnez la fin du rendezVous</label>
+        <input type="datetime-local" [(ngModel)]="finDate" name="finDate" > 
+      </div>
+      <button type="submit"> ajouter rdv</button>
+  </form>
+  </div> -->
+  
+ 
+  
+  
+  
+  
+
+  </div></div></div>
+  <script src="https://cdn3.devexpress.com/jslib/21.2.5/js/dx.all.js"></script>
+  <script src="https://cdn3.devexpress.com/jslib/21.2.5/js/localization/dx.messages.fr.js"></script>
+  
+
+  

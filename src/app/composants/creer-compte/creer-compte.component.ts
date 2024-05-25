@@ -32,7 +32,7 @@ export class CreerCompteComponent implements OnInit{
   ngOnInit(): void {
   
     this.route.queryParams.subscribe(params => {
-      this.selectedRole = params['role'];
+      this.selectedRole = 'patient';
     });
   this.userForm = this.fb.nonNullable.group({
   
@@ -50,27 +50,12 @@ export class CreerCompteComponent implements OnInit{
 
 
 
-  onAccueil(){
-    this.router.navigate(['/dash-medecin']);
-  }
-
   
   creer_compte() {
     this.authService.register(this.userForm.value,this.selectedRole).subscribe
-   ( () => {
-     if (this.selectedRole == 'medecin') {
-       this.router.navigate(['/dash-medecin']);
-       alert("Inscription réussite");
-     }else if( this.selectedRole == 'patient') {
+   ( () => { 
          this.router.navigate(['/login?role=patient']);
          alert("Inscription réussite");
-     }else if(this.selectedRole == 'secretaire') {
-         this.router.navigate(['/login?role=secretaire']);
-         alert("Inscription réussite ! veuillez se connecter maintenant ");
-  
-   } else {
-     alert("erreur : login ou mot de passe incorrecte");
-   }
  })}
 
 
