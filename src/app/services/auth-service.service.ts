@@ -30,23 +30,9 @@ export class AuthServiceService {
     const url = `${this.baseUrl}/medecin?email=${email}&password=${password}`;
     return this.http.get<number>(url);
   }
-  // logout(): Observable<any> {
-  //   return this.http.post(`${this.baseUrl}/logout`, {});
-  // }
 
-  // constructor() { }
-  // public login(username:string, pwd:string){
-  //   if(username == "admin" && pwd=="pwd"){
-  //     localStorage.setItem('state','connected');
-  //   return true;}
-  // else{
-  //   localStorage.setItem('state','disconnected');
-  //   return false;
-  // }
-  
-  // }
-
-  // public logout(){
-  //   localStorage.removeItem('state');
-  // }
+  public findIdSecretaire(email:string,password:string): Observable<number> {
+    const url = `${this.baseUrl}/secretaire?email=${email}&password=${password}`;
+    return this.http.get<number>(url);
+  }
 }

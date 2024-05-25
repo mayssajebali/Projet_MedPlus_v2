@@ -28,7 +28,7 @@ export class StatistiquesSecretaireComponent implements OnInit, OnDestroy {
   nbconsultations:number=0;
   discussion:Discussion[]=[];
   nbDiscussions:number=0;
-  id:number=0;
+  id!:number;
   constructor(private sseService: PatientService,private ConsultationService:ConsultationService,
     private discussionService:DiscussionService,  private route: ActivatedRoute,private router:Router
 

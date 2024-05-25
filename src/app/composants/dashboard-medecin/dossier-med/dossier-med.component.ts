@@ -21,13 +21,11 @@ export class DossierMedComponent  implements OnInit{
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
-      //this.getPatient(this.id);
     });
 
     this.route.paramMap.subscribe(params => {
       this.id_dossier_medical = params.get('id');
       console.log(this.id_dossier_medical); 
-      // Affichez ou utilisez l'ID du patient ici
       this.getDossierMedical(this.id_dossier_medical)
     });
   }
@@ -49,11 +47,9 @@ export class DossierMedComponent  implements OnInit{
 
 
   getDossierMedical(id:number){
-    // Appel à votre service pour obtenir les détails du patient
     this.patientService.getPatientById(id).subscribe(
       (data) => {
         console.log('Patient data:', data);
-        // Traitez les données du patient ici
         this.patient = data;
       },
       (error) => {

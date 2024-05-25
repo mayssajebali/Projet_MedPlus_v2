@@ -28,10 +28,6 @@ export class CertificatComponent implements OnInit{
 
   }
 
-  // getCertificats(): void {
-  //   this.certificatService.getCertificats()
-  //     .subscribe(certificats => this.certificats = certificats);
-  // }
 
 
   getCertificatsByPatients(id:number): void {

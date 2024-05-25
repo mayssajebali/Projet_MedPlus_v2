@@ -134,22 +134,6 @@ export class DiscussionPatientComponent implements OnInit  {
     this.discussionService.sendMessage(message);
   }
 
-  
- /* subscribeToSse(): void {
-    this.sseSubscription = this.patientService.getAllDiscussions().subscribe(
-      data => {
-        console.log('Nouveau message SSE:', data);
-        this.discussion.push(data);
-      },
-      error => {
-        console.error('Erreur SSE:', error);
-      }
-    );
-  }
-
-  updateLastFetchTime(): void {
-    this.lastFetchTime = new Date().toISOString(); // Mettre à jour à l'heure actuelle
-  }*/
   getMedecin(){
     this.medecinService.getMedecintById(1001).subscribe(
       data => {this.medecin=data}

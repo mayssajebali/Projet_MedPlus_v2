@@ -27,7 +27,6 @@ import { CertificatComponent } from './composants/dahboard-patient/certificat/ce
 import { FirstPageComponent } from './composants/first-page/first-page.component';
 import { DossierMedComponent } from './composants/dashboard-medecin/dossier-med/dossier-med.component';
 import { AjouterOrdonnanceComponent } from './composants/dashboard-medecin/ajouter-ordonnance/ajouter-ordonnance.component';
-import { FromOrdonnanceComponent } from './composants/dashboard-medecin/from-ordonnance/from-ordonnance.component';
 import { AjouterCertificatComponent } from './composants/dashboard-medecin/ajouter-certificat/ajouter-certificat.component';
 import { DiscussionPatientComponent } from './composants/dahboard-patient/discussion-patient/discussion-patient.component';
 import { ProfilPatientComponent } from './composants/dahboard-patient/profil-patient/profil-patient.component';
@@ -39,7 +38,6 @@ import { RendezVousComponent } from './composants/dashboard-medecin/rendez-vous/
 import { CreerCompteMedecinComponent } from './composants/dashboard-medecin/creer-compte-medecin/creer-compte-medecin.component';
 import { CreerCompteSecretaireComponent } from './composants/dashboard-secretaire/creer-compte-secretaire/creer-compte-secretaire.component';
 import { DahboardPatientComponent } from './dahboard-patient/dahboard-patient.component';
-import { ModifierpatientComponent } from './composantq/dahboard-patient/modifierpatient/modifierpatient.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +62,6 @@ import { ModifierpatientComponent } from './composantq/dahboard-patient/modifier
     FirstPageComponent,
     DossierMedComponent,
     AjouterOrdonnanceComponent,
-    FromOrdonnanceComponent,
     AjouterCertificatComponent,
     DiscussionPatientComponent,
     ProfilPatientComponent,
@@ -75,7 +72,6 @@ import { ModifierpatientComponent } from './composantq/dahboard-patient/modifier
     CreerCompteMedecinComponent,
     CreerCompteSecretaireComponent,
     DahboardPatientComponent,
-    ModifierpatientComponent,
   ],
   imports: [
     BrowserModule,

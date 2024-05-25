@@ -17,7 +17,6 @@ import { CertificatComponent } from './composants/dahboard-patient/certificat/ce
 import { FirstPageComponent } from './composants/first-page/first-page.component';
 import { DossierMedComponent } from './composants/dashboard-medecin/dossier-med/dossier-med.component';
 import { AjouterOrdonnanceComponent } from './composants/dashboard-medecin/ajouter-ordonnance/ajouter-ordonnance.component';
-import { FromOrdonnanceComponent } from './composants/dashboard-medecin/from-ordonnance/from-ordonnance.component';
 import { AjouterCertificatComponent } from './composants/dashboard-medecin/ajouter-certificat/ajouter-certificat.component';
 import { DiscussionPatientComponent } from './composants/dahboard-patient/discussion-patient/discussion-patient.component';
 import { ProfilPatientComponent } from './composants/dahboard-patient/profil-patient/profil-patient.component';

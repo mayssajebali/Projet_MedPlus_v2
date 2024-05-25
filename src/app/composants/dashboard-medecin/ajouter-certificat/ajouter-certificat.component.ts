@@ -30,7 +30,6 @@ export class AjouterCertificatComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
-      //this.getCertificatsByPatients(this.id);
     });
 
     if (this.route.parent) {
@@ -42,10 +41,6 @@ export class AjouterCertificatComponent implements OnInit {
 
   }
 
-  // getCertificats(): void {
-  //   this.certificatService.getCertificats()
-  //     .subscribe(certificats => this.certificats = certificats);
-  // }
 
 
   getCertificatsByPatients(id:number): void {

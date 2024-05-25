@@ -131,22 +131,6 @@ loadPatients() {
     this.discussionService.sendMessage(message);
   }
 
-  
- /* subscribeToSse(): void {
-    this.sseSubscription = this.patientService.getAllDiscussions().subscribe(
-      data => {
-        console.log('Nouveau message SSE:', data);
-        this.discussion.push(data);
-      },
-      error => {
-        console.error('Erreur SSE:', error);
-      }
-    );
-  }
-
-  updateLastFetchTime(): void {
-    this.lastFetchTime = new Date().toISOString(); // Mettre à jour à l'heure actuelle
-  }*/
   subscribeToSse() {
     const url = 'http://localhost:8084/stream-sse';
     this.sseSubscription = this.sseService.getServerSentEvent(url).subscribe({
@@ -171,24 +155,7 @@ loadPatients() {
     });
   }
   
-  /*parseMessage(message: string): Discussion | null {
-    // Solution 1: Si le message est un JSON
-    try {
-      const parsedMessage = JSON.parse(message);
-      return new Discussion(
-        0, // Id de discussion fictif
-        parsedMessage.content,
-        parsedMessage.time,
-        1, // Id de médecin fictif
-        this.selectedPatientId,
-        this.selectedPatientId, // Expéditeur fictif
-        2 // Récepteur fictif
-      );
-    } catch (error) {
-      console.error('Error parsing message:', error);
-      return null;
-    }
-*/
+  
 AllerVers(path: string): void {
   this.router.navigate([path], { queryParams: { id:this.id} });
 } 

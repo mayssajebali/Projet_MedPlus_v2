@@ -20,8 +20,8 @@ export class AjouterOrdonnanceComponent implements OnInit {
   id_patient!:number;
   medicamentForm!: FormGroup;
   dossierMedical!: number;
-  showMedicamentForm: boolean = false;  // New variable for Medicament form
-  showOrdonnanceForm: boolean = false;  // New variable for Ordonnance form
+  showMedicamentForm: boolean = false;  
+  showOrdonnanceForm: boolean = false;  
 
   constructor(
     private router: Router,

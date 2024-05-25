@@ -11,19 +11,10 @@ const url2="http://localhost:8084/rendezvous";
 })
 export class RendezVousService {
 
- // patients:Patient[]=[
-  //   new Patient(1,"nom1","prenom1"),
-  //   new Patient(2,"nom2","prenom2"),
-  //   new Patient(3,"nom3","prenom3"),
-  // ]
+
 
   constructor(private http:HttpClient) { }
-  // getPatientsTest(){
-  //   return this.patients;
-  // }
-  // getPatients():Observable<Patient[]>{
-  //   return this.http.get<Patient[]>(Url);
-  // }
+
   getrv():Observable<RendezVous[]>{
     return this.http.get<RendezVous[]>(url2);
   }

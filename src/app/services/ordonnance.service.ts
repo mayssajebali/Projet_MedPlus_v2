@@ -30,11 +30,6 @@ export class OrdonnanceService {
     return this.http.get<Medicament[]>(url1);
   }
 
-  // getMedicamentsByOrdonance(id:number): Observable<Medicament[]> {
-  //   const url1 = `${this.apiUrl}/medicamentsOrdonannce/${id}`;
-  //   return this.http.get<Medicament[]>(url1);
-  // }
-
 
     getMedicaments(): Observable<Medicament[]> {
     const url1 = `${this.apiUrl}/medicaments`;

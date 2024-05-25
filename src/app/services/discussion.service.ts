@@ -10,7 +10,7 @@ export class DiscussionService {
   private socket$: WebSocketSubject<any>;
 
   constructor() {
-    this.socket$ = webSocket('ws://localhost:8084/ws'); // Remplacez l'URL par celle de votre serveur WebSocket
+    this.socket$ = webSocket('ws://localhost:8084/ws'); 
   }
 
   sendMessage(message: string): void {

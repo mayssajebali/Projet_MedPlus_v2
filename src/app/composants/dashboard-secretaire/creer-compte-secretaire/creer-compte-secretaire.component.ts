@@ -39,7 +39,7 @@ export class CreerCompteSecretaireComponent implements OnInit{
   })
   }
   recupere(path: string): void {
-    this.router.navigate(['/dash-patient', path], { queryParams: { id:this.id} });
+    this.router.navigate(['/statistiques-secretaire', path], { queryParams: { id:this.id} });
   }
   creer_compte() {
     this.authService.register(this.userForm.value,this.selectedRole).subscribe

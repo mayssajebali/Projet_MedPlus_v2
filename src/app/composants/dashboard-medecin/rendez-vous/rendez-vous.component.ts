@@ -23,31 +23,11 @@ export class RendezVousComponent implements OnInit{
   unavailableDates: Date[] = [new Date(2024, 4, 10), new Date(2024, 4, 15)];
   rvs:RendezVous[]=[];
 
-  //selectedDate!: Date;
-  //  appointments: RendezVous[] = [
-  //   {
-  //     id_rendez_vous:1,
-     
-  //     startDate: new Date('2024-04-27T16:30:00.000Z'),
-  //     endDate: new Date('2024-04-27T18:30:00.000Z'),
-     // heure:3,
-      // text: 'patient amir pneumonie',
-      
-      //allDay: true,
-    // }, {
-    //   id_rendez_vous:2,
-      
-    //   startDate: new Date('2024-04-24T19:00:00.000Z'),
-    //   endDate: new Date('2024-04-24T20:00:00.000Z'),
-      //heure:3,
-      // text: 'patient emna grippe',
-     
-      //allDay: true,
-    // }]
+ 
   patientsTest:Patient[]=[];
   patients:Patient[]=[];
   id:number=0;
-  //appointmentsData!: RendezVous[];
+
   constructor(private rdvService:RendezVousService,private fb:FormBuilder,private patientServ:PatientService,
     private route:ActivatedRoute,private router:Router)
 {}
@@ -57,8 +37,6 @@ export class RendezVousComponent implements OnInit{
     });
 
 
-    // this.patientsTest=this.patientServ.getPatientsTest();
-    // this.patientServ.getPatients().subscribe(data=>this.patients=data);
     this.rdvService.getrv().subscribe(data=>this.rvs=data);
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];

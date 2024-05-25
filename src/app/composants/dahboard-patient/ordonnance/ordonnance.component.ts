@@ -19,8 +19,8 @@ export class OrdonnanceComponent implements OnInit {
   id_dossier_medical!: any;
   id_patient!:number;
   dossierMedical!: number;
-  showMedicamentForm: boolean = false;  // New variable for Medicament form
-  showOrdonnanceForm: boolean = false;  // New variable for Ordonnance form
+  showMedicamentForm: boolean = false;  
+  showOrdonnanceForm: boolean = false; 
 
   constructor(
     private router: Router,

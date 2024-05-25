@@ -56,7 +56,8 @@ export class CreerCompteComponent implements OnInit{
    ( () => { 
          this.router.navigate(['/login?role=patient']);
          alert("Inscription réussite");
- })}
+ })
+}
 
 
 }

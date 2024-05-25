@@ -22,13 +22,7 @@ export class HistoriqueMedicalComponent implements OnInit {
       this.id = params['id'];
     });
     this.getConsultationByPatients(this.id);
-    /*if (this.route.parent) {
-    this.route.parent.paramMap.subscribe(params => {
-      this.id_dossier_medical = params.get('id');
-       this.getConsultationByPatients(this.id);
-    });
-  }*/
-  
+
   }
 
   

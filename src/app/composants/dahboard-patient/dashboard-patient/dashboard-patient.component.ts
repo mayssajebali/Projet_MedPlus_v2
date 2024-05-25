@@ -10,7 +10,7 @@ import { PatientService } from 'src/app/services/patient.service';
 })
 export class DashboardPatientComponent implements OnInit{
   patient!: Patient;
-  id: number = 0;
+  id!: number;
   id_dossier_medical!:any;
   genre!:string;
   constructor(
@@ -23,19 +23,13 @@ export class DashboardPatientComponent implements OnInit{
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       this.getPatient(this.id);
-      this.genre=this.patient.sexe;
     });
 
-    /*this.route.paramMap.subscribe(params => {
-      this.id_dossier_medical = params.get('id');
-      console.log(this.id_dossier_medical); 
-      // Affichez ou utilisez l'ID du patient ici
-      this.getDossierMedical(this.id_dossier_medical)
-    });*/
+ 
   }
 
   recupere(path: string): void {
-    this.router.navigate(['/dash-patient', path], { queryParams: { id:this.id} });
+    this.router.navigate(['/dash-patient', path], { queryParams: { id: this.id} });
   }
 
   getPatient(id: number): void {
@@ -51,11 +45,9 @@ export class DashboardPatientComponent implements OnInit{
 
 
   getDossierMedical(id:number){
-    // Appel à votre service pour obtenir les détails du patient
     this.patientService.getPatientById(id).subscribe(
       (data) => {
         console.log('Patient data:', data);
-        // Traitez les données du patient ici
         this.patient = data;
       },
       (error) => {
@@ -64,7 +56,7 @@ export class DashboardPatientComponent implements OnInit{
     );
 }
 AllerVers(path: string): void {
-  this.router.navigate([path], { queryParams: { id:this.id} });
+  this.router.navigate([path], { queryParams: { id: this.id} });
 }
 
 }
